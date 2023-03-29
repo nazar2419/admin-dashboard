@@ -12,6 +12,9 @@ import path from 'path';
 import managementRoutes from './routes/management.js';
 import salesRoutes from './routes/sales.js';
 
+//data imports
+import User from './models/User.js';
+import { dataUser } from './data/index.js';
 /* CONFIGURaTION */
 dotenv.config();
 const app = express();
@@ -32,7 +35,6 @@ app.use('/sales', salesRoutes);
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 9000;
 
-console.log(process.env.PORT);
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
